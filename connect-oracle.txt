@@ -1,0 +1,28 @@
+Enable in php.ini:
+extension=oci8
+php artisan vendor:publish --tag=oracle
+
+Install package
+composer require yajra/laravel-oci8
+
+Configure database in .env:
+DB_CONNECTION=oracle
+DB_HOST=127.0.0.1
+DB_PORT=1521
+DB_SERVICE_NAME=XE   # or your service name
+DB_USERNAME=your_username
+DB_PASSWORD=your_password
+
+Edit config/database.php
+'oracle' => [
+    'driver'        => 'oracle',
+    'tns'           => env('DB_TNS', ''),
+    'host'          => env('DB_HOST', '127.0.0.1'),
+    'port'          => env('DB_PORT', '1521'),
+    'database'      => env('DB_DATABASE', 'xe'),
+    'service_name'  => env('DB_SERVICE_NAME', ''),
+    'username'      => env('DB_USERNAME', 'system'),
+    'password'      => env('DB_PASSWORD', ''),
+    'charset'       => env('DB_CHARSET', 'AL32UTF8'),
+    'prefix'        => env('DB_PREFIX', ''),
+]
