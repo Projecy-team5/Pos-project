@@ -1,0 +1,14 @@
+flowchart TD
+    A[POS_CUSTOMER] --> B[POS_INVOICE]
+    B --> C[POS_INVOICEDETAIL]
+    C --> D[POS_MENU]
+    D --> E[POS_MENUTYPE]
+
+    F[POS_APPUSER] --> G[POS_APPUSERPERMISSION]
+
+    %% optional flow notes
+    A -->|"Customer places order"| B
+    B -->|"Invoice has line items"| C
+    C -->|"Each item refers to"| D
+    D -->|"Menu belongs to"| E
+    F -->|"User granted"| G
